@@ -166,3 +166,24 @@ re：正则模块，正则表达式（Regular Expression），是一种被用于
 |\S|匹配非空格符：[^\s]|
 
 
+
+
+## 五、json
+### 1、json   
+json模块是python自带的模块，可用于python数据格式和json之间的相互转化
+### 2、json与python数据类型的对应关系
+|JSON|Python|
+|:---:|---|
+|object|dict|
+|array|list|
+|string|str|
+|number(int)|int, long|
+|number(real)|float|
+|true|True|
+|false|False|
+|null|None|
+### 3、json的使用
+> 基本方法
+> loads()    load()
+> 
+
