@@ -103,8 +103,8 @@ kwcoder = soup.find(text='科文码农')
 re：正则模块，正则表达式（Regular Expression），是一种被用于从文本中检索符合某些特定模式的文本。
 ### 2、基本内容
 #### 1）基本匹配
-"Cat" => The cat sat on the <a>Cat</a>.    
-"cat" => The <a>cat</a> sat on the Cat.
+"Cat" => The cat sat on the ***Cat***.    
+"cat" => The ***cat*** sat on the Cat.
 #### 2）元字符
 |元字符|描述|
 |:---:|---|
@@ -121,38 +121,38 @@ re：正则模块，正则表达式（Regular Expression），是一种被用于
 |^|匹配行的开始|
 |\$|匹配行的结束|
 - .   
-".ar" => The <a>car</a> <a>par</a>ked in the <a>gar</a>age.
+".ar" => The ***car*** ***par***ked in the ***gar***age.
 - []   
-"\[Tt\]he" => <a>The</a> car parked in <a>the</a> garage.  
+"\[Tt\]he" => ***The*** car parked in ***the*** garage.  
 但是"."用在此处就表示匹配"."   
-"ar\[.\]" => A garage is a good place to park a c<a>ar.</a>
+"ar\[.\]" => A garage is a good place to park a c***ar.***
 - \[^\]
-"\[^c\]ar" => The car <a>par</a>ked in the <a>gar</a>age.
+"\[^c\]ar" => The car ***par***ked in the ***gar***age.
 - \*
-"\[a-z\]*" => T<a>he car parked in the garage</a> #21.  （表示匹配所有的小写字符）
+"\[a-z\]\*" => T***he car parked in the garage*** #21.  （表示匹配所有的小写字符）
 > .* 可以表示匹配任意字符
 - \+
-"c.+t" => The fat <a>cat sat on t</a>he wall.     （一个小写字母 c，后跟任意数量的字符，后跟小写字母 t。）
+"c.+t" => The fat ***cat sat on t***he wall.     （一个小写字母 c，后跟任意数量的字符，后跟小写字母 t。）
 - ?   
 观察差异：   
-"[T]he" => <a>The</a> car is parked in <a>the</a> garage.   
-"[T]?he" => <a>The</a> car is parked in t<a>he</a> garage.
+"[T]he" => ***The*** car is parked in ***the*** garage.   
+"[T]?he" => ***The*** car is parked in t***he*** garage.
 - {}
-"[0-9]{2,3}" => The number was 9.<a>9997</a> but we rounded it off to <a>10</a>.0.
+"[0-9]{2,3}" => The number was 9.***9997*** but we rounded it off to ***10***.0.
 匹配 2 个或更多个数字。如果我们也删除逗号，则正则表达式 [0-9]{2}，表示：匹配正好为 2 位数的数字。   
-"[0-9]{2,}" => The number was 9.<a>9997</a> but we rounded it off to <a>10</a>.0.   
-"[0-9]{2}" => The number was 9.<a>99</a>97 but we rounded it off to <a>10</a>.0.
+"[0-9]{2,}" => The number was 9.***9997*** but we rounded it off to ***10***.0.   
+"[0-9]{2}" => The number was 9.***99***97 but we rounded it off to ***10***.0.
 - ()   |   
-"(c|p)ar" => The <a>car</a> is <a>par</a>ked in the garage.
+"(c|p)ar" => The ***car*** is ***par***ked in the garage.
 - ^   
 观察：   
-  "(c|p)ar" => The <a>car</a> is <a>par</a>ked in the garage.   
-"^(c|p)ar" => The <a>car</a> is parked in the garage.
+  "(c|p)ar" => The ***car*** is ***par***ked in the garage.   
+"^(c|p)ar" => The ***car*** is parked in the garage.
 > 只对开头进行匹配
 - \$   
 观察：   
-"(at\.)" => The fat c<a>at.</a> s<a>at.</a> on the m<a>at.</a>   
-"(at\.)$" => The fat cat. sat. on the m<a>at.</a>
+"(at\.)" => The fat c***at.*** s***at.*** on the m***at.***   
+"(at\.)$" => The fat cat. sat. on the m***at.***
 > 只对末尾进行匹配
 #### 3）简写字符集
 |简写|描述|
