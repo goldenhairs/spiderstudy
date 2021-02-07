@@ -98,3 +98,71 @@ kwcoder = soup.find(text='科文码农')
 ```
 
 
+## 四、re
+### 1、re   
+re：正则模块，正则表达式（Regular Expression），是一种被用于从文本中检索符合某些特定模式的文本。
+### 2、基本内容
+#### 1）基本匹配
+"Cat" => The cat sat on the <font color=green>Cat</font>.    
+"cat" => The <font color=green>cat</font> sat on the Cat.
+#### 2）元字符
+|元字符|描述|
+|:---:|---|
+|.|匹配除换行符以外的任意单字符。|
+|[]|字符类，匹配方括号中包含的任意字符。|
+|[^]|否定字符类，匹配方括号中不包含的任意字符。|
+|*|匹配前面的子表达式零次或多次。|
+|+|匹配前面的子表达式一次或多次。|
+|?|匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。|
+|{n,m}|花括号，匹配前面字符至少n次，但不超过m次|
+|(xyz)|字符组，按照确切的额顺序匹配字符xyz|
+|&#124;|分支结构，匹配符号之前的字符或后面的字符|
+|\\|转义字符，可以还原元字符原来的含义|
+|^|匹配行的开始|
+|\$|匹配行的结束|
+- .   
+".ar" => The <font color=green>car</font> <font color=green>par</font>ked in the <font color=green>gar</font>age.
+- []   
+"\[Tt\]he" => <font color=green>The</font> car parked in <font color=green>the</font> garage.  
+但是"."用在此处就表示匹配"."   
+"ar\[.\]" => A garage is a good place to park a c<font color=green>ar.</font>
+- \[^\]
+"\[^c\]ar" => The car <font color=green>par</font>ked in the <font color=green>gar</font>age.
+- \*
+"\[a-z\]*" => T<font color=green>he car parked in the garage</font> #21.  （表示匹配所有的小写字符）
+> .* 可以表示匹配任意字符
+- \+
+"c.+t" => The fat <font color=green>cat sat on t</font>he wall.     （一个小写字母 c，后跟任意数量的字符，后跟小写字母 t。）
+- ?   
+观察差异：   
+"[T]he" => <font color=green>The</font> car is parked in <font color=green>the</font> garage.   
+"[T]?he" => <font color=green>The</font> car is parked in t<font color=green>he</font> garage.
+- {}
+"[0-9]{2,3}" => The number was 9.<font color=green>9997</font> but we rounded it off to <font color=green>10</font>.0.
+匹配 2 个或更多个数字。如果我们也删除逗号，则正则表达式 [0-9]{2}，表示：匹配正好为 2 位数的数字。   
+"[0-9]{2,}" => The number was 9.<font color=green>9997</font> but we rounded it off to <font color=green>10</font>.0.   
+"[0-9]{2}" => The number was 9.<font color=green>99</font>97 but we rounded it off to <font color=green>10</font>.0.
+- ()   |   
+"(c|p)ar" => The <font color=green>car</font> is <font color=green>par</font>ked in the garage.
+- ^   
+观察：   
+  "(c|p)ar" => The <font color=green>car</font> is <font color=green>par</font>ked in the garage.   
+"^(c|p)ar" => The <font color=green>car</font> is parked in the garage.
+> 只对开头进行匹配
+- \$   
+观察：   
+"(at\.)" => The fat c<font color=green>at.</font> s<font color=green>at.</font> on the m<font color=green>at.</font>   
+"(at\.)$" => The fat cat. sat. on the m<font color=green>at.</font>
+> 只对末尾进行匹配
+#### 3）简写字符集
+|简写|描述|
+|:---:|---|
+|.|匹配除换行符以外的任意字符|
+|\w|匹配所有非字母和数字的字符：[a-zA-Z0-9_]|
+|\W|匹配非字母和数字的字符：[^\w]|
+|\d|匹配数字：[0-9]|
+|\D|匹配非数字：[^\d]|
+|\s|匹配空格符：[\t\n\f\r\p{Z}]|
+|\S|匹配非空格符：[^\s]|
+
+
