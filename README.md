@@ -103,8 +103,8 @@ kwcoder = soup.find(text='科文码农')
 re：正则模块，正则表达式（Regular Expression），是一种被用于从文本中检索符合某些特定模式的文本。
 ### 2、基本内容
 #### 1）基本匹配
-"Cat" => The cat sat on the <font color=green>Cat</font>.    
-"cat" => The <font color=green>cat</font> sat on the Cat.
+"Cat" => The cat sat on the <a>Cat</a>.    
+"cat" => The <a>cat</a> sat on the Cat.
 #### 2）元字符
 |元字符|描述|
 |:---:|---|
@@ -121,38 +121,38 @@ re：正则模块，正则表达式（Regular Expression），是一种被用于
 |^|匹配行的开始|
 |\$|匹配行的结束|
 - .   
-".ar" => The <font color=green>car</font> <font color=green>par</font>ked in the <font color=green>gar</font>age.
+".ar" => The <a>car</a> <a>par</a>ked in the <a>gar</a>age.
 - []   
-"\[Tt\]he" => <font color=green>The</font> car parked in <font color=green>the</font> garage.  
+"\[Tt\]he" => <a>The</a> car parked in <a>the</a> garage.  
 但是"."用在此处就表示匹配"."   
-"ar\[.\]" => A garage is a good place to park a c<font color=green>ar.</font>
+"ar\[.\]" => A garage is a good place to park a c<a>ar.</a>
 - \[^\]
-"\[^c\]ar" => The car <font color=green>par</font>ked in the <font color=green>gar</font>age.
+"\[^c\]ar" => The car <a>par</a>ked in the <a>gar</a>age.
 - \*
-"\[a-z\]*" => T<font color=green>he car parked in the garage</font> #21.  （表示匹配所有的小写字符）
+"\[a-z\]*" => T<a>he car parked in the garage</a> #21.  （表示匹配所有的小写字符）
 > .* 可以表示匹配任意字符
 - \+
-"c.+t" => The fat <font color=green>cat sat on t</font>he wall.     （一个小写字母 c，后跟任意数量的字符，后跟小写字母 t。）
+"c.+t" => The fat <a>cat sat on t</a>he wall.     （一个小写字母 c，后跟任意数量的字符，后跟小写字母 t。）
 - ?   
 观察差异：   
-"[T]he" => <font color=green>The</font> car is parked in <font color=green>the</font> garage.   
-"[T]?he" => <font color=green>The</font> car is parked in t<font color=green>he</font> garage.
+"[T]he" => <a>The</a> car is parked in <a>the</a> garage.   
+"[T]?he" => <a>The</a> car is parked in t<a>he</a> garage.
 - {}
-"[0-9]{2,3}" => The number was 9.<font color=green>9997</font> but we rounded it off to <font color=green>10</font>.0.
+"[0-9]{2,3}" => The number was 9.<a>9997</a> but we rounded it off to <a>10</a>.0.
 匹配 2 个或更多个数字。如果我们也删除逗号，则正则表达式 [0-9]{2}，表示：匹配正好为 2 位数的数字。   
-"[0-9]{2,}" => The number was 9.<font color=green>9997</font> but we rounded it off to <font color=green>10</font>.0.   
-"[0-9]{2}" => The number was 9.<font color=green>99</font>97 but we rounded it off to <font color=green>10</font>.0.
+"[0-9]{2,}" => The number was 9.<a>9997</a> but we rounded it off to <a>10</a>.0.   
+"[0-9]{2}" => The number was 9.<a>99</a>97 but we rounded it off to <a>10</a>.0.
 - ()   |   
-"(c|p)ar" => The <font color=green>car</font> is <font color=green>par</font>ked in the garage.
+"(c|p)ar" => The <a>car</a> is <a>par</a>ked in the garage.
 - ^   
 观察：   
-  "(c|p)ar" => The <font color=green>car</font> is <font color=green>par</font>ked in the garage.   
-"^(c|p)ar" => The <font color=green>car</font> is parked in the garage.
+  "(c|p)ar" => The <a>car</a> is <a>par</a>ked in the garage.   
+"^(c|p)ar" => The <a>car</a> is parked in the garage.
 > 只对开头进行匹配
 - \$   
 观察：   
-"(at\.)" => The fat c<font color=green>at.</font> s<font color=green>at.</font> on the m<font color=green>at.</font>   
-"(at\.)$" => The fat cat. sat. on the m<font color=green>at.</font>
+"(at\.)" => The fat c<a>at.</a> s<a>at.</a> on the m<a>at.</a>   
+"(at\.)$" => The fat cat. sat. on the m<a>at.</a>
 > 只对末尾进行匹配
 #### 3）简写字符集
 |简写|描述|
