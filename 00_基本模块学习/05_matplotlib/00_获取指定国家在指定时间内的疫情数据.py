@@ -46,4 +46,10 @@ class VirusData(object):
 
 
 v = VirusData()
-print(v.get_virus_data(country='美国'))
+china_datas = v.get_virus_data(country='中国', start=20200123, end=20210208)
+china = []
+
+for data in china_datas:
+    china.append(data['confirmedIncr'])
+
+print(china)
