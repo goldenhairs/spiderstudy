@@ -16,5 +16,5 @@ json_str = re.findall(r'\[.+\]', str(datas))[0]
 # 4. 把json格式的字符串转换为python类型
 last_day_corona_virus_world = json.loads(json_str)
 # 5. 以json格式保存，最近一日各国疫情数据
-with open('data/last_day_corona_virus_world.json', 'w', encoding='utf8') as fp:
+with open('近一日数据/last_day_corona_virus_world.json', 'w', encoding='utf8') as fp:
     json.dump(last_day_corona_virus_world, fp, ensure_ascii=False)

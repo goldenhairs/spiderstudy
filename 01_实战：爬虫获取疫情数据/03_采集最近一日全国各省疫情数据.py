@@ -13,5 +13,5 @@ json_str = re.findall(r'\[.+\]', str(datas))[0]
 
 last_day_corona_virus_china = json.loads(json_str)
 
-with open('data/last_day_corona_virus_china.json', 'w', encoding='utf8') as fp:
+with open('近一日数据/last_day_corona_virus_china.json', 'w', encoding='utf8') as fp:
     json.dump(last_day_corona_virus_china, fp, ensure_ascii=False)
