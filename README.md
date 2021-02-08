@@ -188,17 +188,88 @@ json模块是python自带的模块，可用于python数据格式和json之间的
 > dumps()    dump()
 
 
-
-
-
-
-
 ## 六、matplotlib
 ### 1、matplotlib
 ### 2、常用子模块及其方法
 #### 1）matplotlib.pyplot
 用于画基本的图，如折线图、散点图、柱状图、直方图、饼图等   
-|JSON|Python|
-|:---:|---|
-|object|dict|
-|array|list|
+
+|图形|方法|参数|
+|:---:|---|---|
+|折线图|plot(x, y)|横轴数据，纵轴数据|
+|散点图|scatter(x, y)|横轴数据，纵轴数据|
+|柱状图|bar(x, y)|横轴数据，纵轴数据|
+|直方图|hist(x, bins, density)|数据，组数，是否用频率展示|
+|饼图|pie(x, labels, autopct)|数据，每个数据对应的标签，显示百分比格式（通常为%1.2f%%）|
+
+使用步骤：
+```python
+import matplotlib.pyplot as plt
+
+# 准备数据
+x = []
+y = []
+
+# 准备画布
+plt.figure(figsize=(10, 8), dpi=80)
+
+# 绘制折线图（或其他图形）
+plt.plot(x, y)
+
+# 添加辅助层
+# 修改横坐标
+plt.xticks(x, x)
+plt.xlabel('')
+
+plt.yticks(y)
+plt.ylabel('')
+# 添加标题
+plt.title('')
+# 添加网格线
+plt.grid(linestyle='-.', alpha=0.5)
+
+# 展示数据
+plt.show()
+```
+
+建立多个绘图区：
+```python
+import matplotlib.pyplot as plt
+
+x = []
+y1 = []
+y2 = []
+
+fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(20, 10), dpi=200)
+
+ax[0].plot(x, y1, color='b', label='中国')
+ax[1].plot(x, y2, color='r', label='美国')
+
+ax[0].legend()
+ax[1].legend()
+
+time_label = ''
+ax[0].set_xticks(x)
+ax[0].set_xticklabels(time_label)
+ax[1].set_xticks(x)
+ax[1].set_xticklabels(time_label)
+
+ax[0].set_ylabel('')
+ax[1].set_ylabel('')
+
+ax[0].set_xlabel('')
+ax[1].set_xlabel('')
+
+ax[0].grid(linestyle='-.', alpha=0.5)
+ax[1].grid(linestyle='-.', alpha=0.5)
+
+ax[0].set_title('')
+ax[1].set_title('')
+
+plt.show()
+```
+
+#### 2）matplotlib.animation.FuncAnimation
+用于绘制动画
+
+
