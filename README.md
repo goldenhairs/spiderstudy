@@ -183,7 +183,22 @@ json模块是python自带的模块，可用于python数据格式和json之间的
 |false|False|
 |null|None|
 ### 3、json的使用
-> 基本方法
-> loads()    load()
-> 
+> 基本方法   
+> loads()    load()   
+> dumps()    dump()
 
+
+
+
+
+
+
+## 六、matplotlib
+### 1、matplotlib
+### 2、常用子模块及其方法
+#### 1）matplotlib.pyplot
+用于画基本的图，如折线图、散点图、柱状图、直方图、饼图等   
+|JSON|Python|
+|:---:|---|
+|object|dict|
+|array|list|
