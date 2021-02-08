@@ -190,7 +190,47 @@ json模块是python自带的模块，可用于python数据格式和json之间的
 
 ## 六、matplotlib
 ### 1、matplotlib
-### 2、常用子模块及其方法
+### 2、matplotlib三层结构
+#### 1）容器层
+- 画板层（Canvas）
+- 画布层：`plt.figure(figsize, dpi)`   
+其中`figsize`是画布的大小，dpi是画布的像素
+- 绘图区、坐标系：`figure, axes = plt.subplots(nrows, ncols, figsize, dpi)`   
+`figure`是画布，`axes`是绘图区，如果分割成多个绘图区，则使用`axes[index]`的方式去对每个绘图区做不同的设置
+#### 2）辅助显示层
+- 修改x，y轴刻度：`plt.xticks(ticks, labels)` `plt.yticks(ticks, labels)`   
+`ticks`是当前刻度位置，`labels`是需要设置的标签，刻度位置和标签需要一一对应   
+如果使用了多个绘图区，则需要这样替换：   
+```python
+axes[0].set_xticks(ticks)
+axes[0].set_xticklabels(labels)
+```
+- 添加描述信息：   
+`plt.xlabel()` `plt.ylabel` `axes[0].set_xlabel()` `axes[0].set_ylabel()`   
+`plt.title()` `axes[0].set_title()`   
+- 添加网格线：`plt.grid()`（多个绘图区同理）   
+常用参数列表：   
+`color`   
+`linestyle`   
+`linewidth`   
+`alpha`：透明度
+- 显示图例：`plt.legend()`（多个绘图区同理）
+#### 3）图像层(colors为通用属性)
+- 折线图   
+`plt.plot(scalex, scaley)`
+- 散点图   
+`plt.scatter(x, y)`
+- 柱状图   
+`plt.bar(x, y, width, align=center, **kwargs)`   
+`plt.barh(x, y, width, align=center, **kwargs)`   
+x为横坐标的刻度，y为纵坐标，width为柱子的宽度
+- 直方图   
+`plt.hist(x, bins=None, density=None, **kwargs)`   
+x是数据，bins是组数，density为True时纵坐标显示频率
+- 饼图   
+`plt.pie(x, labels, autopct)`   
+`x`为数据，`labels`为数据对应的标题，`autopct`的值通常为`%1.2f%%`，是百分比例的格式
+### 3、常用子模块及其方法
 #### 1）matplotlib.pyplot
 用于画基本的图，如折线图、散点图、柱状图、直方图、饼图等   
 
@@ -365,3 +405,4 @@ ColorbarBase(cax, cmap=YlOrRd, norm=norm, label='颜色条')
 
 plt.show()
 ```
+
