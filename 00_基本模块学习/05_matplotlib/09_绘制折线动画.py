@@ -43,6 +43,6 @@ def update(i):
 
 
 # 创建动画
-animation = FuncAnimation(fig, update, frames=x, repeat=False)
+animation = FuncAnimation(fig, update, frames=x, repeat=False, interval=100)
 
 plt.show()
