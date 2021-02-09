@@ -85,12 +85,13 @@ def update(i):
         x_end = i + (x_range - line_range) if i + (x_range - line_range) < len(x) else len(x)
         # 更新横轴范围
         plt.xlim(start, x_end)
-        plt.xticks(x[start:end], time_label[start:x_end])
+        plt.xticks(ticks=x[start:end], labels=time_label[start:end])
     if i > 50:
         plt.ylim(0, 500)
     if i > 344:
         plt.xlabel('2021年')
     return line
+
 
 plt.title('中国新冠疫情新增病例动态图展示')
 
