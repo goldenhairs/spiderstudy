@@ -136,7 +136,7 @@ plt.title('2020年2月1日以来“五常”与印度确诊人数')
 animation = FuncAnimation(fig, update, frames=x, repeat=False, interval=200)
 
 # 保存文件(gif格式需要安装Pillow、mp4格式需要安装ffmpeg)
-animation.save(filename='2020年2月1日以来“五常”与印度确诊人数.mp4')
+# animation.save(filename='2020年2月1日以来“五常”与印度确诊人数.mp4')
 
 # 展示动画
 plt.show()
