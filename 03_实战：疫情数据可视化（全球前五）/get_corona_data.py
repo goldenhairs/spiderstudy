@@ -67,13 +67,4 @@ class CoronaVirusData(object):
                     if date_id == now.year * 10000 + now.month * 100 + now.day - 1:
                         return time, time_dict
 
-    def test(self):
-        now = datetime.datetime.now()
-        year = now.year
-        month = now.month
-        day = now.day
-        print(year * 10000 + month * 100 + day)
 
-
-c = CoronaVirusData()
-c.get_all_data_list()
